@@ -1,0 +1,1 @@
+cmd_/home/anusha/KM_GIT/ldd_assmnts/null_ldd/char.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/anusha/KM_GIT/ldd_assmnts/null_ldd/char.ko /home/anusha/KM_GIT/ldd_assmnts/null_ldd/char.o /home/anusha/KM_GIT/ldd_assmnts/null_ldd/char.mod.o

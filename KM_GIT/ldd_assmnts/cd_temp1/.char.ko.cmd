@@ -1,0 +1,1 @@
+cmd_/home/anusha/KM_GIT/ldd_assmnts/cd_temp1/char.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.13.0-32-generic/scripts/module-common.lds --build-id  -o /home/anusha/KM_GIT/ldd_assmnts/cd_temp1/char.ko /home/anusha/KM_GIT/ldd_assmnts/cd_temp1/char.o /home/anusha/KM_GIT/ldd_assmnts/cd_temp1/char.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/anusha/KM_GIT/ldd_assmnts/interrupt1/intr.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/anusha/KM_GIT/ldd_assmnts/interrupt1/intr.ko /home/anusha/KM_GIT/ldd_assmnts/interrupt1/intr.o /home/anusha/KM_GIT/ldd_assmnts/interrupt1/intr.mod.o

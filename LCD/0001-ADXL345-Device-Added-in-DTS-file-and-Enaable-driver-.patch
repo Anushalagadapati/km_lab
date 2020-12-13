@@ -1,0 +1,79 @@
+From 7784e9d911184c83e0a9b75fc9a75d753c8ca655 Mon Sep 17 00:00:00 2001
+From: Kishore Kumar <kishore@kernelmasters.org>
+Date: Fri, 9 Jun 2017 15:28:05 +0530
+Subject: [PATCH 1/2] ADXL345 Device Added in DTS file and Enaable driver as
+ static
+
+---
+ arch/arm/boot/dts/am335x-bone-common.dtsi | 16 +++++++++++-----
+ arch/arm/configs/beaglebone_defconfig     |  4 ++--
+ 2 files changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm/boot/dts/am335x-bone-common.dtsi b/arch/arm/boot/dts/am335x-bone-common.dtsi
+index 3763cd9..1f48448 100644
+--- a/arch/arm/boot/dts/am335x-bone-common.dtsi
++++ b/arch/arm/boot/dts/am335x-bone-common.dtsi
+@@ -228,11 +228,11 @@
+ 		>;
+ 	};
+ 
+-	ehrpwm1_pin_p9_16: pinmux_ehrpwm1_pin_p9_16 {
++	/*ehrpwm1_pin_p9_16: pinmux_ehrpwm1_pin_p9_16 {
+ 		pinctrl-single,pins = <
+ 			0x04c 0x6	/* P9_16 (ZCZ ball T14) | MODE 6 */
+-		>;
+-	};
++	/*	>;
++	};*/
+ 
+ 	ecap0_pin_p9_42: pinmux_ecap0_pin_p9_42 {
+ 		pinctrl-single,pins = <
+@@ -312,6 +312,12 @@
+ 		compatible = "ds,ds1307";
+                 reg = <0x68>;
+         };
++        baseboard_adxl34x: baseboard_adxl34x@53 {
++                compatible = "ad,adxl34x";
++                reg = <0x53>;
++                interrupt-parent = <&gpio1>;
++                interrupts = <19 0>;
++       };
+ };
+ 
+ 
+@@ -357,7 +363,7 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <
+ 		&ehrpwm1_pin_p9_14
+-		&ehrpwm1_pin_p9_16
++	/*	&ehrpwm1_pin_p9_16*/
+ 	>;
+ 
+ 	status = "okay";
+@@ -489,7 +495,7 @@
+ 			pwms = <&ehrpwm1 0 500000 1>;
+ 			pwm-names = "PWM_P9_16";
+ 			pinctrl-names = "default";
+-			pinctrl-0 = <&ehrpwm1_pin_p9_16>;
++			/*pinctrl-0 = <&ehrpwm1_pin_p9_16>;*/
+ 			enabled = <1>;
+ 			duty = <0>;
+ 			status = "okay";
+diff --git a/arch/arm/configs/beaglebone_defconfig b/arch/arm/configs/beaglebone_defconfig
+index ca6c74f..ee5ddbb 100644
+--- a/arch/arm/configs/beaglebone_defconfig
++++ b/arch/arm/configs/beaglebone_defconfig
+@@ -2288,8 +2288,8 @@ CONFIG_INPUT_PCF8574=m
+ CONFIG_INPUT_GPIO_ROTARY_ENCODER=m
+ CONFIG_INPUT_DA9052_ONKEY=m
+ CONFIG_INPUT_DA9055_ONKEY=m
+-CONFIG_INPUT_ADXL34X=m
+-CONFIG_INPUT_ADXL34X_I2C=m
++CONFIG_INPUT_ADXL34X=y
++CONFIG_INPUT_ADXL34X_I2C=y
+ CONFIG_INPUT_ADXL34X_SPI=m
+ CONFIG_INPUT_IMS_PCU=m
+ CONFIG_INPUT_CMA3000=m
+-- 
+2.1.4
+
